@@ -40,9 +40,9 @@ moves is the wallpaper.
 | Piece | What it does |
 |---|---|
 | `niri/config.kdl` | Full ready-to-run config: olive borders, dimmed unfocused windows, crisp animations, sane binds, floating-window snapping |
-| [lifewall](https://github.com/TheWhyteWolf/lifewall) | Conway's Game of Life as the wallpaper — a tiny Rust binary (cloned + built by `install.sh`) rendered through kitty's background panel at 30 fps, births fading in and deaths dissolving. Pause it (zero CPU) with `Mod+Shift+G`, reseed with `Mod+Ctrl+G`. Python fallback if you don't have cargo. |
-| [lifelock](https://github.com/TheWhyteWolf/lifegate) + swayidle | Game of Life cube lock screen; auto-lock at 10 min, screens off at 15, locks before sleep. swaylock stays as the `Mod+Shift+Alt+Escape` recovery fallback |
-| [lifegreet](https://github.com/TheWhyteWolf/lifegate) + greetd | Matching Game of Life login screen — the cube grows out of an olive username box (optional, separate installer; tuigreet fallback) |
+| [lifewall](https://github.com/allthemalware/lifewall) | Conway's Game of Life as the wallpaper — a tiny Rust binary (cloned + built by `install.sh`) rendered through kitty's background panel at 30 fps, births fading in and deaths dissolving. Pause it (zero CPU) with `Mod+Shift+G`, reseed with `Mod+Ctrl+G`. Python fallback if you don't have cargo. |
+| [lifelock](https://github.com/allthemalware/lifegate) + swayidle | Game of Life cube lock screen; auto-lock at 10 min, screens off at 15, locks before sleep. swaylock stays as the `Mod+Shift+Alt+Escape` recovery fallback |
+| [lifegreet](https://github.com/allthemalware/lifegate) + greetd | Matching Game of Life login screen — the cube grows out of an olive username box (optional, separate installer; tuigreet fallback) |
 | `waybar/` | Thin 26 px bar, pure-text labels: workspaces, title, clock, DND, network, volume, battery, CPU/MEM. Volume/brightness keys flash a wob OSD |
 | `fuzzel/` | Launcher, clipboard history (`Mod+P`) and power menu (`Mod+Shift+E`), all matching |
 | `mako/` | Olive notifications; do-not-disturb via `Mod+N` |
@@ -58,14 +58,14 @@ Cursor: [phinger-cursors](https://github.com/phisch/phinger-cursors) (light).
 Arch-based distros (uses `yay`/`paru` if present for the one AUR package):
 
 ```sh
-git clone https://github.com/TheWhyteWolf/niri-olivetree.git ~/niri-olivetree
+git clone https://github.com/allthemalware/niri-olivetree.git ~/niri-olivetree
 bash ~/niri-olivetree/install.sh
 ```
 
 The script installs packages, backs up any existing configs to `*.bak`,
 symlinks these configs into `~/.config`, clones and builds the Game of Life
-binaries (the [lifewall](https://github.com/TheWhyteWolf/lifewall) wallpaper and
-the [lifelock](https://github.com/TheWhyteWolf/lifegate) locker) from their
+binaries (the [lifewall](https://github.com/allthemalware/lifewall) wallpaper and
+the [lifelock](https://github.com/allthemalware/lifegate) locker) from their
 repos, installs lifelock's PAM file, sets the GTK dark theme + cursor, and runs
 `niri validate`. Then log out and pick **Niri** at the login screen.
 
@@ -77,7 +77,7 @@ On other distros: install the equivalents of the package list at the top of
 
 Replaces your display manager with greetd + **lifegreet** — the Game of Life
 cube greeter that matches the lock screen (built from the
-[lifegate](https://github.com/TheWhyteWolf/lifegate) repo). You type your
+[lifegate](https://github.com/allthemalware/lifegate) repo). You type your
 username into a bare olive box, Enter grows the cube, and the password shows
 nothing but panel flares.
 
@@ -129,7 +129,7 @@ These need `jq` (in the package list).
 
 ## The wallpaper
 
-[`lifewall`](https://github.com/TheWhyteWolf/lifewall) is a ~400 KB
+[`lifewall`](https://github.com/allthemalware/lifewall) is a ~400 KB
 dependency-free Rust binary that runs Conway's Game of Life on a torus and
 interpolates every cell's colour each frame. When the board settles into still
 lifes for ~20 s it crossfades into a fresh random soup. It rides inside
@@ -137,7 +137,7 @@ lifes for ~20 s it crossfades into a fresh random soup. It rides inside
 wallpaper. Terminals are 7% transparent so the life ghosts through them.
 
 Tick rate, colours, density and glyph are all flags — see the
-[lifewall repo](https://github.com/TheWhyteWolf/lifewall), or preview it in any
+[lifewall repo](https://github.com/allthemalware/lifewall), or preview it in any
 terminal by just running `lifebg`.
 
 ## Uninstall

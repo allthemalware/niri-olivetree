@@ -74,8 +74,8 @@ ln -sfn "$REPO/scripts/dnd-toggle.sh"    "$HOME/.local/bin/dnd-toggle.sh"
 
 # The Game of Life binaries are built from their own repos (the single source
 # of truth) rather than bundled here, so they never drift out of sync:
-#   lifewall  -> the wallpaper      (github.com/TheWhyteWolf/lifewall)
-#   lifegate  -> lifelock + lifegreet workspace (github.com/TheWhyteWolf/lifegate)
+#   lifewall  -> the wallpaper      (github.com/allthemalware/lifewall)
+#   lifegate  -> lifelock + lifegreet workspace (github.com/allthemalware/lifegate)
 SRC="${XDG_DATA_HOME:-$HOME/.local/share}/niri-olivetree/src"
 fetch() {  # fetch URL DIR — clone, or fast-forward if already cloned
   if [[ -d "$2/.git" ]]; then
@@ -88,7 +88,7 @@ fetch() {  # fetch URL DIR — clone, or fast-forward if already cloned
 
 echo "==> Game of Life wallpaper (~/.local/bin/lifebg)"
 if command -v cargo >/dev/null 2>&1; then
-  fetch https://github.com/TheWhyteWolf/lifewall.git "$SRC/lifewall"
+  fetch https://github.com/allthemalware/lifewall.git "$SRC/lifewall"
   (cd "$SRC/lifewall" && cargo build --release)
   ln -sfn "$SRC/lifewall/target/release/lifewall" "$HOME/.local/bin/lifebg"
 else
@@ -101,7 +101,7 @@ fi
 # recovery fallback behind Mod+Shift+Alt+Escape.
 echo "==> lifelock screen locker (~/.local/bin/lifelock)"
 if command -v cargo >/dev/null 2>&1; then
-  fetch https://github.com/TheWhyteWolf/lifegate.git "$SRC/lifegate"
+  fetch https://github.com/allthemalware/lifegate.git "$SRC/lifegate"
   (cd "$SRC/lifegate" && cargo build --release -p lifelock)
   ln -sfn "$SRC/lifegate/target/release/lifelock" "$HOME/.local/bin/lifelock"
   echo "    installing PAM service -> /etc/pam.d/lifelock"

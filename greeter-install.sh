@@ -27,7 +27,7 @@ if [[ -d "$SRC/lifegate/.git" ]]; then
   git -C "$SRC/lifegate" pull --ff-only --quiet
 else
   mkdir -p "$(dirname "$SRC/lifegate")"
-  git clone --quiet https://github.com/TheWhyteWolf/lifegate.git "$SRC/lifegate"
+  git clone --quiet https://github.com/allthemalware/lifegate.git "$SRC/lifegate"
 fi
 (cd "$SRC/lifegate" && cargo build --release -p lifegreet)
 # /usr/local/bin, not ~/.local/bin: the binary runs as the `greeter` user.
